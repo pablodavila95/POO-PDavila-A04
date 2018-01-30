@@ -15,12 +15,12 @@ public:
     Invoice(std::string id, int customerID, std::string name, double discount);
     Invoice(std::string id, Customer customer);
 
-    void setCustomer(const Customer &customer);
+    void setCustomer(Customer &customer);
 
-    const std::string &getId() const;
-    const Customer &getCustomer() const;
+    std::string &getId();
+    Customer &getCustomer();
 
-    double getAmount() const;
+    double getAmount();
     double getAmountAfterDiscount();
 
     std::string getCustomerName();
@@ -42,7 +42,7 @@ private:
     std::string id;
     Customer customer;
     double amount = 0;
-    InvoiceItems items[];
+    InvoiceItems items[9];
 
     bool findItem();
     void recalculateAmount();
